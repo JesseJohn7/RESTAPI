@@ -1,0 +1,1 @@
+npm init -y creates a package.json file. This file records your project’s name, scripts, and dependencies (the libraries it needs). Anyone who gets your project can run npm install and get everything.
