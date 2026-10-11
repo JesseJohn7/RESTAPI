@@ -1,7 +1,14 @@
+<!-- Initializing Package.json -->
+
 npm init -y creates a package.json file. This file records your project’s name, scripts, and dependencies (the libraries it needs). Anyone who gets your project can run npm install and get everything.
+
+<!-- What Express and Nodeman is  -->
+express is the framework.
+nodemon restarts your server automatically whenever you save a file. It’s installed as a dev dependency because it’s only needed while developing.
 
 What each part does:
 
+<!-- Server Js code explanation  -->
 require('express') imports the library.
 express() creates your app (the server).
 app.get('/', ...) defines a route: when someone sends a GET request to /, run this function.
