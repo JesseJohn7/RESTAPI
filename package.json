@@ -12,7 +12,6 @@
   "keywords": [],
   "author": "Billionaire Developer",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "dotenv": "^18.0.7",
     "express": "^5.3.0"
