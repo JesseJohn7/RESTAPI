@@ -1,1 +1,11 @@
 npm init -y creates a package.json file. This file records your project’s name, scripts, and dependencies (the libraries it needs). Anyone who gets your project can run npm install and get everything.
+
+What each part does:
+
+require('express') imports the library.
+express() creates your app (the server).
+app.get('/', ...) defines a route: when someone sends a GET request to /, run this function.
+req is the incoming request (data from the client). res is the response you send back.
+app.listen starts the server on port 3000.
+
+Run it with npm run dev, then visit http://localhost:3000 in your browser. You should see your message.
