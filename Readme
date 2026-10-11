@@ -39,4 +39,6 @@ Middleware is a function that runs between the request arriving and your route h
 :id is a route parameter, available as req.params.id.
 req.body holds data the client sent.
 res.status(404) sets the HTTP status code (200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error).
-res.json() sends JSON b
+res.json() sends JSON 
+
+<!-- POSTMAN is used to send GET or POST request -->
