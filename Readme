@@ -16,3 +16,22 @@ req is the incoming request (data from the client). res is the response you send
 app.listen starts the server on port 3000.
 
 Run it with npm run dev, then visit http://localhost:3000 in your browser. You should see your message.
+
+
+<!-- Understanding Routes and HTTP COMMANDS -->
+
+Step 6: Understand routes and HTTP methods
+
+APIs use different HTTP methods for different actions:
+
+Method	Purpose	Example
+GET	Read data	Get all tasks
+POST	Create data	Add a new task
+PUT/PATCH	Update data	Edit a task
+DELETE	Remove data	Delete a task
+
+A route is a combination of a method + a path (like GET /tasks).
+
+Step 7: Add middleware
+
+Middleware is a function that runs between the request arriving and your route handling it. Think of it as a checkpoint. Add this above your routes in server.js:
