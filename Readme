@@ -42,3 +42,12 @@ res.status(404) sets the HTTP status code (200 OK, 201 Created, 400 Bad Request,
 res.json() sends JSON 
 
 <!-- POSTMAN is used to send GET or POST request -->
+
+
+REQUEST OBJECT : Gives us access to the incoming request
+ 
+ The URL used , the headers ,Method what they client is giving and taking
+
+ <!-- URL PROPERTY -->
+
+ Holds URL of the request or endpoint client is trying to hit 
