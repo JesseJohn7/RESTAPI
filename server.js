@@ -7,12 +7,14 @@ const server = http.createServer((req,res) => {
         res.end('Hola de Server!')
     }
 
-    else{
+    /* Else is not compulsory */
+    
+    /* else{
         res.end('No endpoint found')
-    }
+    } */
     
     /* URL of request tells us what endpoint client is trying to hit */
-    console.log(req.url);
+    /* console.log(req.url); */
 
 })  
 console.log("We have a Package.Json !!!") 
