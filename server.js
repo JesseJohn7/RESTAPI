@@ -3,12 +3,18 @@ const PORT = 3000;
 const server = http.createServer((req,res) => {
 
     /* Conditional Server rendering */
-    if (req.url === '/api') {
+    /* if (req.url === '/api') {
+        res.end('Hola de Server!')
+    } */
+
+    /* Combining with Method and URL */
+    
+    if (req.method === 'GET' && req.url === '/api') {
         res.end('Hola de Server!')
     }
 
     /* Else is not compulsory */
-    
+
     /* else{
         res.end('No endpoint found')
     } */
