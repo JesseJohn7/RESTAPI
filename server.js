@@ -1,7 +1,15 @@
 import http from 'node:http'
 const PORT = 3000;
 const server = http.createServer((req,res) => {
-    res.end('Hola de Server!')
+
+    /* Conditional Server rendering */
+    if (req.url === '/api') {
+        res.end('Hola de Server!')
+    }
+
+    else{
+        res.end('No endpoint found')
+    }
     
     /* URL of request tells us what endpoint client is trying to hit */
     console.log(req.url);
