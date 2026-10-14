@@ -51,3 +51,7 @@ REQUEST OBJECT : Gives us access to the incoming request
  <!-- URL PROPERTY -->
 
  Holds URL of the request or endpoint client is trying to hit 
+
+ <!-- JSON is human readable -->
+
+ We cant jsut send data because of the hyper text transfer protocol that data transferred between client and server has to be in form of strings
