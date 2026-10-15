@@ -18,6 +18,12 @@ Challenge:
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify(destinations))
   }
+
+  else{
+    res.setHeader('Content-Type' , 'application/json')
+    res.statusCode = 404
+    res.end(JSON.stringify({ message: 'Route not found' }))
+  }
 })
 
 server.listen(PORT, () => console.log(`Connected on port: ${PORT}`))
