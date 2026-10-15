@@ -35,3 +35,11 @@ server.listen(PORT,() =>
 )  
 
 
+/* JSON EXAMPLE */
+
+const animal = {
+    type:"cattle",
+    name:"Jacob Nikklesan"
+}
+
+console.log(JSON.stringify(animal))
