@@ -59,3 +59,11 @@ REQUEST OBJECT : Gives us access to the incoming request
  To safely convert data to JSON you use Json.stringfy() Method
 
   You've successfully handled the asynchronous data retrieval and served it as JSON. You're really on a roll! 
+
+
+  <!-- Content type or MIME -->
+
+  application/Json
+  application/Javascript
+  text/html
+  text/css
