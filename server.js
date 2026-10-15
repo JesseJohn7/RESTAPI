@@ -1,4 +1,5 @@
 import http from 'node:http'
+import db from './db.js'
 const PORT = 3000;
 const server = http.createServer((req,res) => {
 
