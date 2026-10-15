@@ -19,6 +19,16 @@ Challenge:
     res.end(JSON.stringify(destinations))
   }
 
+   else if (req.url.startsWith('/api/continent') && req.method === 'GET') {
+      const continent = req.url.split('/').pop()
+       const filteredData = destinations.filter((destination) => {
+        return destination.continent.toLowerCase() === continent.toLowerCase()
+       })
+       res.setHeader('Content-Type', 'application/json')
+       res.statusCode = 200
+       res.end(JSON.stringify(filteredData))
+   }
+
   else{
     res.setHeader('Content-Type' , 'application/json')
     res.statusCode = 404
