@@ -1,48 +1,20 @@
 import http from 'node:http'
-import { getDataFromDB } from './db'
-const PORT = 3000;
-const server = http.createServer(async(req,res) => {
-
-const destination = await db.getDataFromDB();
-
-    /* Conditional Server rendering */
-    /* if (req.url === '/api') {
-        res.end('Hola de Server!')
-    } */
-
-    /* Combining with Method and URL */
-    
-    if (req.method === 'GET' && req.url === '/api') {
-        res.end(JSON.stringify(destination))
-    }
-
-    /* Else is not compulsory */
-
-    /* else{
-        res.end('No endpoint found')
-    } */
-    
-    /* URL of request tells us what endpoint client is trying to hit */
-    /* console.log(req.url); */
-
-})  
-console.log("We have a Package.Json !!!") 
-
-/* REQUEST PROPERTY */
-
+import { getDataFromDB } from './db.js'
  
-/* HTTP LISTENER */
+const PORT = 3000
 
-server.listen(PORT,() => 
-    console.log(`Server is running on port ${PORT}`)
-)  
+const server = http.createServer(async (req, res) => {
+  const destinations = await getDataFromDB()
 
 
-/* JSON EXAMPLE */
+  if (req.url === '/api' && req.method === 'GET') {
+/*
+Challenge:
+1. Access the ‘setHeader’ method on the response object and pass in two strings to set the      
+   Content-Type to ‘application/json’ - watch out for casing! 
+*/  res.setHeader('Content-Type', 'application/json')
+    res.end(JSON.stringify(destinations))
+  }
+})
 
-const animal = {
-    type:"cattle",
-    name:"Jacob Nikklesan"
-}
-
-console.log(JSON.stringify(animal))
+server.listen(PORT, () => console.log(`Connected on port: ${PORT}`))
