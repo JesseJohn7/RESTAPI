@@ -1,5 +1,5 @@
 import http from 'node:http'
-import db from './db.js'
+import { getDataFromDB } from './db'
 const PORT = 3000;
 const server = http.createServer(async(req,res) => {
 
