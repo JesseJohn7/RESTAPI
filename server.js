@@ -1,7 +1,9 @@
 import http from 'node:http'
 import db from './db.js'
 const PORT = 3000;
-const server = http.createServer((req,res) => {
+const server = http.createServer(async(req,res) => {
+
+const destination = await db.getDataFromDB();
 
     /* Conditional Server rendering */
     /* if (req.url === '/api') {
@@ -11,7 +13,7 @@ const server = http.createServer((req,res) => {
     /* Combining with Method and URL */
     
     if (req.method === 'GET' && req.url === '/api') {
-        res.end('Hola de Server!')
+        res.end(JSON.stringify(destination))
     }
 
     /* Else is not compulsory */
