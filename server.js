@@ -1,6 +1,6 @@
 import http from 'node:http'
 import { getDataFromDB } from './db.js'
- 
+import (sendJSONResponse) from './sendJSONResponse.js'
 const PORT = 3000
 
 const server = http.createServer(async (req, res) => {
@@ -14,9 +14,7 @@ Challenge:
    Content-Type to ‘application/json’ - watch out for casing! 
    
 */  
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify(destinations))
+    sendJSONResponse(res, 200, destinations)
   }
 
    else if (req.url.startsWith('/api/continent') && req.method === 'GET') {
