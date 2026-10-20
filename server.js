@@ -19,7 +19,20 @@ const server = http.createServer(async (req, res) => {
     })
     sendJSONResponse(res, 200, filteredData)
 
-  } else {
+  }
+
+  else if  (req.url.startsWith('/api/country') && req.method === 'GET') {
+
+    const country= req.url.split('/').pop()
+    const filteredData = destinations.filter((destination) => {
+      return country.continent.toLowercase() === country.toLowercase()
+    })
+    sendJSONResponse(res,200,filteredData)
+
+  }
+
+  
+  else {
 
     res.setHeader('Content-Type', 'application/json')
     sendJSONResponse(res, 404, ({
