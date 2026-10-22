@@ -67,3 +67,5 @@ REQUEST OBJECT : Gives us access to the incoming request
   application/Javascript
   text/html
   text/css
+
+Query param
