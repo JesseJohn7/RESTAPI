@@ -44,4 +44,10 @@ const server = http.createServer(async (req, res) => {
   }
 })
 
+/* Query Parameters */
+
+
+
 server.listen(PORT, () => console.log(`Connected on port: ${PORT}`))
+
+
