@@ -1,36 +1,36 @@
 import http from 'node:http'
 import { getDataFromDB } from './database/db.js'
 import { sendJSONResponse } from './utils/sendJSONResponse.js'
+import { getDataByPathParams } from './utils/getDataByPathParams.js'
+import { getDataByQueryParams } from './utils/getDataByQueryParams.js'
 
 const PORT = 8000
 
 const server = http.createServer(async (req, res) => {
   const destinations = await getDataFromDB()
 
-  if (req.url === '/api' && req.method === 'GET') {
+  const urlObj = new URL(req.url, `http://${req.headers.host}`)
 
-    sendJSONResponse(res, 200, destinations)
+  const queryObj = Object.fromEntries(urlObj.searchParams)
+
+  if (urlObj.pathname === '/api' && req.method === 'GET') {
+    
+    let filteredData = getDataByQueryParams(destinations, queryObj)
+    sendJSONResponse(res, 200, filteredData)
 
   } else if (req.url.startsWith('/api/continent') && req.method === 'GET') {
 
     const continent = req.url.split('/').pop()
-    const filteredData = destinations.filter((destination) => {
-      return destination.continent.toLowerCase() === continent.toLowerCase()
-    })
+    const filteredData = getDataByPathParams(destinations, 'continent', continent)
     sendJSONResponse(res, 200, filteredData)
 
-  }
+  } else if (req.url.startsWith('/api/country') && req.method === 'GET') {
 
-  else if  (req.url.startsWith('/api/country') && req.method === 'GET') {
+    const country = req.url.split('/').pop()
+    const filteredData = getDataByPathParams(destinations, 'country', country)
+    sendJSONResponse(res, 200, filteredData)
 
-    const country= req.url.split('/').pop()
-    const filteredData = destinations.filter((destination) => {
-      return country.continent.toLowercase() === country.toLowercase()
-    })
-    sendJSONResponse(res,200,filteredData)
-
-  }
-
+  } 
   
   else {
 
@@ -38,16 +38,9 @@ const server = http.createServer(async (req, res) => {
     sendJSONResponse(res, 404, ({
       error: "not found",
       message: "The requested route does not exist"
-    })
-    )
-    
+    }))   
+
   }
 })
 
-/* Query Parameters */
-
-
-
 server.listen(PORT, () => console.log(`Connected on port: ${PORT}`))
-
-

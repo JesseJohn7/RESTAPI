@@ -69,3 +69,8 @@ REQUEST OBJECT : Gives us access to the incoming request
   text/css
 
 Query param
+
+
+CORS
+
+Cross Origin Resource Sharing

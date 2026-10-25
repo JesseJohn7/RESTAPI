@@ -6,7 +6,11 @@ const PORT = 8000
 
 const server = http.createServer(async (req, res) => {
  
-    
+    const urlObj = new URL(req.url, `http://${req.headers.host}`)
+    console.log(req.headers)
+
+    const queryObject = Object.fromEntries(urlObj.searchParams.entries())
+    console.log(queryObject)
 })
 
 /* Query Parameters */
