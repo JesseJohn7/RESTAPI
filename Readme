@@ -22,7 +22,7 @@ Run it with npm run dev, then visit http://localhost:3000 in your browser. You s
 
 Step 6: Understand routes and HTTP methods
 
-APIs use different HTTP methods for different actions:
+APIs use different HTTP methods for different actions: 
 
 Method	Purpose	Example
 GET	Read data	Get all tasks
